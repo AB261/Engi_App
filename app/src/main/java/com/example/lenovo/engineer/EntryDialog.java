@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,7 +22,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 public class EntryDialog extends DialogFragment {
     private static final String TAG = "EntryDialog";
-
+    private LinearLayout parent;
     public EntryDialog() {
 
     }
@@ -103,12 +104,21 @@ public class EntryDialog extends DialogFragment {
                     bundle.putString("location", location);
                     mapsFragment.setArguments(bundle);
                     if (!location.equals("Online")) {
-                        getActivity().getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.main_menu_fl_container, mapsFragment)
-                                .addToBackStack("MapsFragment")
-                                .commit();
-                        getDialog().dismiss();
+                        if(getActivity() instanceof main_menu) {
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.main_menu_fl_container, mapsFragment)
+                                    .addToBackStack("Maps")
+                                    .commit();
+                            getDialog().dismiss();
+                        }else{
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.favourites_fl_container, mapsFragment)
+                                    .addToBackStack("Maps")
+                                    .commit();
+                            getDialog().dismiss();
+                        }
                     }
                 }
             });

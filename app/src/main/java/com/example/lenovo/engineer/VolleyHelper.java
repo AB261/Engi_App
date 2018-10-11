@@ -37,6 +37,7 @@ public class VolleyHelper
         if(mRequestQueue == null){
             mRequestQueue = Volley.newRequestQueue(mContext.getApplicationContext());
         }
+        mRequestQueue.getCache().clear();
         // Return RequestQueue
         return mRequestQueue;
     }

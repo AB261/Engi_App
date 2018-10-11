@@ -67,11 +67,6 @@ public class ScheduleFragment extends Fragment {
         //day5Adapter = new ScheduleListAdapter(getActivity());
         if(getActivity()!=null)
             getActivity().setTitle("Schedule");
-        day0Adapter = new ScheduleListAdapter(getActivity());
-        day1Adapter = new ScheduleListAdapter(getActivity());
-        day2Adapter = new ScheduleListAdapter(getActivity());
-        day3Adapter = new ScheduleListAdapter(getActivity());
-        day4Adapter = new ScheduleListAdapter(getActivity());
         makeRequest();
         return rootView;
     }
@@ -95,6 +90,11 @@ public class ScheduleFragment extends Fragment {
     }
 
     public void makeRequest() {
+        day0Adapter = new ScheduleListAdapter(getActivity());
+        day1Adapter = new ScheduleListAdapter(getActivity());
+        day2Adapter = new ScheduleListAdapter(getActivity());
+        day3Adapter = new ScheduleListAdapter(getActivity());
+        day4Adapter = new ScheduleListAdapter(getActivity());
         progressBar.setVisibility(View.VISIBLE);
         JsonArrayRequest listRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -162,13 +162,14 @@ public class ScheduleFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e(TAG, "listRequest Volley error : " + error.getMessage());
-                        Snackbar.make(getView(), "Connection lost.", Snackbar.LENGTH_INDEFINITE)
+                        Snackbar.make(viewPager, "Connection lost.", Snackbar.LENGTH_INDEFINITE)
                                 .setAction("Retry", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         makeRequest();
                                     }
                                 })
+                                .setActionTextColor(getResources().getColor(R.color.yellow))
                                 .show();
                     }
                 }

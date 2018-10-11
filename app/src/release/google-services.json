@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "243648961130-1vtnrudt3ej53ui4a4nd7ri4qabjegbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.engineer",
+            "certificate_hash": "8cfd0f9b07cadf9a22ad5e732f9516bb870dd12d"
+          }
+        },
+        {
           "client_id": "243648961130-c6751d6l2v5tvse3632nc8gjf16o65k3.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243648961130-c6751d6l2v5tvse3632nc8gjf16o65k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

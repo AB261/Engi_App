@@ -23,10 +23,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.stats.internal.G;
 
 
 public class main_menu extends AppCompatActivity
@@ -131,6 +129,10 @@ public class main_menu extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+        if(getSupportFragmentManager().getFragments().size()==0
+                || getSupportFragmentManager().getFragments().size()==1){
+            finish();
+        }
     }
 
     @Override
@@ -173,6 +175,7 @@ public class main_menu extends AppCompatActivity
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.main_menu_fl_container, fragment);
+            ft.addToBackStack("Fragment");
             ft.commit();
         }
 

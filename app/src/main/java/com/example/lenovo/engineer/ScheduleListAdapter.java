@@ -31,6 +31,7 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
     private List<Entry> entryList = new ArrayList<>();
     private Context context;
     private static SharedPreferences mPreferences;
+    private static String TAG = "ScheduleListAdapter";
     private static String sharedPrefFile = "com.example.android.engineer";
 
     ScheduleListAdapter(Context context) {
